@@ -1,0 +1,249 @@
+/* Custom CSS for Hope of Light Website */
+
+/* Global Styles & Variables */
+:root {
+    --primary-color: #4a90e2; /* Hope of Light Blue */
+    --secondary-color: #f5a623; /* Hope of Light Orange */
+    --accent-color: #50e3c2; /* Teal/Mint for accents */
+    --dark-color: #333;
+    --light-color: #f9f9f9;
+    --success-color: #7ed321; /* Green for success */
+    --error-color: #ff3860; /* Red for errors */
+
+    /* Custom Bootstrap Overrides */
+    --bs-primary: var(--primary-color);
+    --bs-secondary: var(--secondary-color);
+    --bs-success: var(--success-color);
+    --bs-info: var(--accent-color); /* Using accent for info */
+    --bs-light: var(--light-color);
+    --bs-dark: var(--dark-color);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+    background-color: white;
+    /* Bootstrap's shadow-sm class handles shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.navbar-brand.logo span {
+    color: var(--secondary-color);
+}
+
+.nav-links .nav-item .nav-link {
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+    margin-left: 0.5rem; /* Adjust spacing for nav items */
+    margin-right: 0.5rem;
+}
+
+.nav-links .nav-item .nav-link:hover,
+.nav-links .nav-item .nav-link.active {
+    color: var(--primary-color);
+}
+
+/* Custom Buttons */
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary-custom:hover {
+    background-color: #3a7bc8; /* Darker shade of primary */
+    border-color: #3a7bc8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary-custom {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-secondary-custom:hover {
+    background-color: #e6940a; /* Darker shade of secondary */
+    border-color: #e6940a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080/4a90e2/ffffff?text=Hope+of+Light+Hero+Image') no-repeat center center/cover;
+    min-height: 80vh; /* Use min-height for better responsiveness */
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Section Titles */
+.section-title h2 {
+    color: var(--primary-color);
+}
+
+.section-title p {
+    color: #666;
+}
+
+/* About Section */
+.about-image img {
+    transition: transform 0.5s ease-in-out;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Projects Section */
+.bg-light-custom {
+    background-color: #f1f7ff !important; /* Lighter blue tint */
+}
+
+.project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.project-card img {
+    height: 250px; /* Fixed height for project images */
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-info h3 {
+    color: var(--primary-color);
+}
+
+/* Auth Pages (Login/Register) */
+.auth-container {
+    max-width: 500px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.auth-form .form-group label {
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: white;
+}
+
+footer .footer-column h3 {
+    color: var(--secondary-color);
+}
+
+footer .list-unstyled a {
+    color: #ccc;
+    transition: color 0.3s ease-in-out;
+}
+
+footer .list-unstyled a:hover {
+    color: white;
+}
+
+.social-links a {
+    color: white;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
+
+.copyright {
+    border-top: 1px solid #444;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991.98px) { /* Bootstrap's lg breakpoint */
+    .navbar-collapse {
+        background-color: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid #eee;
+    }
+    .nav-links .nav-item {
+        margin: 0.5rem 0;
+    }
+    .nav-links .nav-item:last-child { /* Adjust donate button on mobile */
+        margin-top: 1rem;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    .display-4 {
+        font-size: 2.5rem; /* Adjust impact numbers for smaller screens */
+    }
+}
+
+@media (max-width: 767.98px) { /* Bootstrap's md breakpoint */
+    .hero {
+        min-height: 60vh;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 0.9rem;
+    }
+    .btn-lg {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+    }
+    .footer-content .col-md-4 {
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center;
+    }
+}
