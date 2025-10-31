@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us - Hope of Light</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start; 
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem; 
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .icon-address { background-color: var(--primary-color); }
+        .icon-phone { background-color: var(--secondary-color); }
+        .icon-email { background-color: var(--accent-color); }
+        .icon-hours { background-color: var(--success-color); }
+        .error {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            display: none;
+            margin-top: 0.25rem;
+        }
+        .error-field {
+            border-color: var(--error-color) !important;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+        .success-message {
+            display: none;
+            margin-top: 1rem;
+            color: var(--success-color);
+            font-weight: 600;
+            background-color: rgba(25, 135, 84, 0.1);
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid var(--success-color);
+        }
+        .contact-info h5 {
+            margin-bottom: 0.25rem;
+            color: var(--dark-color);
+        }
+        .contact-info p {
+            margin-bottom: 0;
+            color: #666;
+        }
+        .contact-column {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a href="index.html" class="navbar-brand logo fw-bold fs-3">Hope of <span style="color: #f5a623;">Light</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto nav-links">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                        <li class="nav-item ms-lg-3">
+                            <!-- UPI Donate Button in Nav -->
+                            <button type="button" class="btn btn-secondary-custom d-inline-block align-middle" style="padding: 0.5rem 1rem; font-size: 1rem; border-radius: 0.3rem; color: white; text-decoration: none; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#donateModal">Donate Now</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+<!-- Donation Modal -->
+<div class="modal fade" id="donateModal" tabindex="-1" aria-labelledby="donateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary" id="donateModalLabel">Donate to Hope of Light</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="donateForm" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="donateAmount" class="form-label">Amount (INR) *</label>
+                            <input type="number" id="donateAmount" class="form-control" min="1" required>
+                            <div class="invalid-feedback">Enter amount > 0.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="donateName" class="form-label">Full Name *</label>
+                            <input type="text" id="donateName" class="form-control" required>
+                            <div class="invalid-feedback">Name required.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="donateEmail" class="form-label">Email ID *</label>
+                            <input type="email" id="donateEmail" class="form-control" required>
+                            <div class="invalid-feedback">Valid email needed.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="donateMobile" class="form-label">Mobile No *</label>
+                            <input type="tel" id="donateMobile" class="form-control" pattern="^\+?[1-9]\d{1,14}$" required>
+                            <div class="invalid-feedback">Valid mobile number.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="donateDOB" class="form-label">Date of Birth *</label>
+                            <input type="date" id="donateDOB" class="form-control" required>
+                            <div class="invalid-feedback">DOB required.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="donateCountry" class="form-label">Select Country *</label>
+                            <select id="donateCountry" class="form-select" required onchange="populateStates()">
+                                <option value="">Choose...</option>
+                                <option value="India">India</option>
+                                <option value="USA">USA</option>
+                                <option value="UK">UK</option>
+                            </select>
+                            <div class="invalid-feedback">Select country.</div>
+                        </div>
+                        <div class="col-12">
+                            <label for="donateAddress" class="form-label">Address *</label>
+                            <textarea id="donateAddress" class="form-control" rows="3" required></textarea>
+                            <div class="invalid-feedback">Address required.</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="donatePincode" class="form-label">Pincode *</label>
+                            <input type="text" id="donatePincode" class="form-control" pattern="^\d{5,6}$" required>
+                            <div class="invalid-feedback">Valid pincode (5-6 digits).</div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary-custom w-100">Proceed to Donate</button>
+                    </div>
+                    <div class="alert alert-success mt-3 d-none" id="donateSuccess" role="alert">
+                        Thank you! Redirecting to UPI payment...
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Contact Section  -->
+    <section class="py-5">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary">Get In Touch</h2>
+                <p class="lead text-muted">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            </div>
+            <div class="row g-4 align-items-start">
+                <!-- Contact Info Column -->
+                <div class="col-md-6 col-lg-5 contact-column">
+                    <div class="contact-info">
+                        <div class="contact-info-item">
+                            <div class="contact-icon icon-address" aria-hidden="true">📍</div>
+                            <div>
+                                <h5>Our Address</h5>
+                                <p>202/A, Deccan Gymkhana, Pune, Maharashtra 411004</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon icon-phone" aria-hidden="true">📞</div>
+                            <div>
+                                <h5>Phone</h5>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon icon-email" aria-hidden="true">✉️</div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>info@hopeoflight.org</p>
+                            </div>
+                        </div>
+                        <div class="contact-info-item">
+                            <div class="contact-icon icon-hours" aria-hidden="true">🕒</div>
+                            <div>
+                                <h5>Hours</h5>
+                                <p>Mon - Fri: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div class="col-md-6 col-lg-7 contact-column">
+                    <form class="contact-form" id="contactForm" novalidate>
+                        <div class="mb-3 form-group">
+                            <label for="name" class="form-label fw-semibold">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your full name" required aria-describedby="nameError">
+                            <div class="error" id="nameError">Name is required</div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="email" class="form-label fw-semibold">Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="you@example.com" required aria-describedby="emailError">
+                            <div class="error" id="emailError">Valid email is required</div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label for="subject" class="form-label fw-semibold">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Subject of your message" required aria-describedby="subjectError">
+                            <div class="error" id="subjectError">Subject is required</div>
+                        </div>
+                        <div class="mb-4 form-group">
+                            <label for="message" class="form-label fw-semibold">Message</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Write your message here..." required aria-describedby="messageError"></textarea>
+                            <div class="error" id="messageError">Message is required</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100 py-2">Send Message</button>
+                        <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+                            <i class="fas fa-check-circle me-2"></i>Thank you! Your message has been sent. We'll get back to you soon.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row footer-content">
+                <div class="col-md-4 mb-3">
+                    <h3 class="text-secondary mb-3">About Us</h3>
+                    <p>Hope of Light is dedicated to empowering communities through sustainable development programs, fostering hope and creating lasting change.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h3 class="text-secondary mb-3">Quick Links</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="projects.html" class="text-white-50 text-decoration-none">Projects</a></li>
+                        <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h3 class="text-secondary mb-3">Connect With Us</h3>
+                    <div class="social-links d-flex gap-3">
+                        <a href="#" class="text-white-50 text-decoration-none fs-4"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white-50 text-decoration-none fs-4"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white-50 text-decoration-none fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white-50 text-decoration-none fs-4"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('donateForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (isValid) {
+            const upiAmount = document.getElementById('donateAmount').value;
+            const upiUrl = `upi://pay?pa=8805330565@ybl&pn=Hope%20of%20Light&mc=0000&cu=INR&am=${upiAmount}&tn=Donation%20from%20${encodeURIComponent(document.getElementById('donateName').value)}`;
+            document.getElementById('donateSuccess').classList.remove('d-none');
+            setTimeout(() => {
+                window.location.href = upiUrl;
+                bootstrap.Modal.getInstance(document.getElementById('donateModal')).hide();
+            }, 2000);
+        }
+    });
+});
+</script>
+</body>
+</html>
